@@ -1,3 +1,5 @@
+# DONT USE THIS! THIS IS A WORKAROUND!
+
 PowerDNS module for Caddy
 =========================
 
