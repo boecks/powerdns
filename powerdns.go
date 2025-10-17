@@ -32,7 +32,7 @@ func init() {
 func (Provider) CaddyModule() caddy.ModuleInfo {
 	return caddy.ModuleInfo{
 		ID:  "dns.providers.",
-		New: func() caddy.Module { return &Provider{new(.Provider)} },
+		New: func() caddy.Module { return &Provider{new(powerdns.Provider)} },
 	}
 }
 
