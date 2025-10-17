@@ -15,7 +15,7 @@
 package powerdns
 
 import (
-	"github.com/libdns/powerdns"
+	powerdns "github.com/boecks/libdns-powerdns"
 
 	"github.com/caddyserver/caddy/v2"
 	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
@@ -31,12 +31,12 @@ func init() {
 // CaddyModule returns the Caddy module information.
 func (Provider) CaddyModule() caddy.ModuleInfo {
 	return caddy.ModuleInfo{
-		ID:  "dns.providers.powerdns",
-		New: func() caddy.Module { return &Provider{new(powerdns.Provider)} },
+		ID:  "dns.providers.",
+		New: func() caddy.Module { return &Provider{new(.Provider)} },
 	}
 }
 
-// Provision implements the Provisioner interface to initialize the PowerDNS client
+// Provision implements the Provisioner interface to initialize the  client
 func (p *Provider) Provision(ctx caddy.Context) error {
 	repl := caddy.NewReplacer()
 	p.Provider.ServerURL = repl.ReplaceAll(p.Provider.ServerURL, "")
@@ -48,7 +48,7 @@ func (p *Provider) Provision(ctx caddy.Context) error {
 
 // UnmarshalCaddyfile sets up the DNS provider from Caddyfile tokens. Syntax:
 //
-//	powerdns {
+//	 {
 //	    server_url <string>
 //	    api_token <string>
 //	    server_id <string>
